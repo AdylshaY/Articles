@@ -3,7 +3,7 @@
     using Microsoft.EntityFrameworkCore;
     using Submission.Domain.Entities;
 
-    public class SubmissionDbContext : DbContext
+    public class SubmissionDbContext(DbContextOptions<SubmissionDbContext> options) : DbContext(options)
     {
         #region Entities
         public virtual DbSet<Article> Articles { get; set; }
@@ -13,6 +13,7 @@
         #region Configuration
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(this.GetType().Assembly);
         }
         #endregion
