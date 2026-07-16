@@ -1,0 +1,22 @@
+﻿namespace Submission.Domain.Entities
+{
+    using Articles.Abstractions.Enums;
+
+    public partial class Journal
+    {
+        public Article CreateArticle(string title, ArticleType type, string scope)
+        {
+            var article = new Article
+            {
+                Title = title,
+                Type = type,
+                Scope = scope,
+                Journal = this,
+                Stage = ArticleStage.Created,
+            };
+            _articles.Add(article);
+            //TODO: Add a domain event for article creation
+            return article;
+        }
+    }
+}
