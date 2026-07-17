@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blocks.MediatR", "BuildingB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blocks.Exceptions", "BuildingBlocks\Blocks.Exceptions\Blocks.Exceptions.csproj", "{F5DC9FBA-C65D-4AEF-A9D5-CA046CA6E8F0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blocks.Core", "BuildingBlocks\Blocks.Core\Blocks.Core.csproj", "{C7AD87A4-A38E-48AE-850B-7DD67309FAE0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{F5DC9FBA-C65D-4AEF-A9D5-CA046CA6E8F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5DC9FBA-C65D-4AEF-A9D5-CA046CA6E8F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5DC9FBA-C65D-4AEF-A9D5-CA046CA6E8F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7AD87A4-A38E-48AE-850B-7DD67309FAE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7AD87A4-A38E-48AE-850B-7DD67309FAE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7AD87A4-A38E-48AE-850B-7DD67309FAE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7AD87A4-A38E-48AE-850B-7DD67309FAE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,6 +98,7 @@ Global
 		{F58B319C-91EF-4BE8-8756-C48513A03E0F} = {24272DDE-661D-472D-BB57-00408B9E2875}
 		{C8A63063-CD32-4524-8810-A0A02C1E1AD8} = {24272DDE-661D-472D-BB57-00408B9E2875}
 		{F5DC9FBA-C65D-4AEF-A9D5-CA046CA6E8F0} = {24272DDE-661D-472D-BB57-00408B9E2875}
+		{C7AD87A4-A38E-48AE-850B-7DD67309FAE0} = {24272DDE-661D-472D-BB57-00408B9E2875}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DBBDB217-448C-4922-AC88-1938E3ABE9E2}

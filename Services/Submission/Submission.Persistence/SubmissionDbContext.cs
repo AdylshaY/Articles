@@ -8,6 +8,9 @@
         #region Entities
         public virtual DbSet<Article> Articles { get; set; }
         public virtual DbSet<Journal> Journals { get; set; }
+        public virtual DbSet<Person> Persons { get; set; }
+        public virtual DbSet<Author> Authors { get; set; }
+        public virtual DbSet<ArticleActor> ArticleActors { get; set; }
         #endregion
 
         #region Configuration

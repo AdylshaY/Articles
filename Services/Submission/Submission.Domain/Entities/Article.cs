@@ -12,5 +12,6 @@
         public ArticleStage Stage { get; internal set; }
         public int JournalId { get; set; }
         public required Journal Journal { get; init; }
+        public List<ArticleActor> Actors { get; set; } = [];
     }
 }
