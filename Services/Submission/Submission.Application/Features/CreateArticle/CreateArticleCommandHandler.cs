@@ -1,12 +1,7 @@
 ﻿namespace Submission.Application.Features.CreateArticle
 {
-    using Articles.Abstractions;
-    using Articles.Abstractions.Enums;
     using Blocks.EntityFramework;
-    using MediatR;
     using Microsoft.EntityFrameworkCore;
-    using Submission.Domain.Entities;
-    using Submission.Persistence.Repositories;
 
     internal class CreateArticleCommandHandler(Repository<Journal> _journalRepository) : IRequestHandler<CreateArticleCommand, IdResponse>
     {

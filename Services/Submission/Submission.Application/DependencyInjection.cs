@@ -1,7 +1,6 @@
 ﻿namespace Submission.Application
 {
     using Blocks.MediatR.Behaviors;
-    using FluentValidation;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Submission.Application.Features.CreateArticle;
