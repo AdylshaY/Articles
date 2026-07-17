@@ -16,6 +16,7 @@
                 .AddMediatR(cfg =>
                 {
                     cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+                    cfg.AddOpenBehavior(typeof(SetUserIdBehavior<,>));
                     cfg.AddOpenBehavior(typeof(ValidationBehavior<,>));
                 });
 
