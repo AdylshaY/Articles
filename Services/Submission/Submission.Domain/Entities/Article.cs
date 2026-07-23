@@ -11,6 +11,9 @@
         public ArticleStage Stage { get; internal set; }
         public int JournalId { get; set; }
         public required Journal Journal { get; init; }
-        public List<ArticleActor> Actors { get; set; } = [];
+        public List<ArticleActor> Actors { get; init; } = [];
+
+        private readonly List<Asset> _assets = [];
+        public IReadOnlyList<Asset> Assets => _assets.AsReadOnly();
     }
 }

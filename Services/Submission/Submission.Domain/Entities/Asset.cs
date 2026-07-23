@@ -5,7 +5,7 @@
     public class Asset : Entity
     {
         public AssetName Name { get; private set; } = null!;
-        public AssetType AssetType { get; private set; }
+        public AssetType Type { get; private set; }
 
         public int ArticleId { get; private set; }
         public Article Article { get; private set; } = null!;

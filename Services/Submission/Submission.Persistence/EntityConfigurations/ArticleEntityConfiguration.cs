@@ -40,6 +40,13 @@
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
             #endregion
+
+            #region Assets
+            builder.HasMany(e => e.Assets).WithOne(e => e.Article)
+                .HasForeignKey(e => e.ArticleId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
+            #endregion
         }
     }
 }
