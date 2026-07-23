@@ -8,5 +8,7 @@
         public int MaxFileSizeInBytes => MaxFileSizeInMB * 1024 * 1024;
         public required string DefaultFileExtension { get; set; } = default!;
         public required FileExtensions AllowedFileExtensions { get; set; } = default!;
+        public int MaxAssetCount { get; init; }
+        public bool AllowMultipleAssets => MaxAssetCount > 1;
     }
 }

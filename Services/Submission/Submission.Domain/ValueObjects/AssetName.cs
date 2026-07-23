@@ -7,6 +7,6 @@
     {
         private AssetName(string value) => Value = value;
 
-        public static AssetName FromAssetType(AssetType assetType) => new(assetType.ToString());
+        public static AssetName FromAssetType(AssetTypeDefinition assetType) => new(assetType.Name.ToString());
     }
 }

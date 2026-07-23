@@ -20,5 +20,14 @@
 
             //TODO: Create domain event for author assignment
         }
+
+        public Asset CreateAsset(AssetTypeDefinition type)
+        {
+            var assetCount = _assets.Count(x => x.Type == type.Id);
+            if (type.MaxAssetCount > assetCount - 1) throw new DomainException($"The maximum number of files allowed for {type.Name} was already reached.");
+            var asset = Asset.Create(this, type);
+            _assets.Add(asset);
+            return asset;
+        }
     }
 }
