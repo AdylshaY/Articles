@@ -1,9 +1,10 @@
 ﻿namespace Submission.Application.Features.UploadFile.UploadManuscriptFile
 {
     using Blocks.EntityFramework;
+    using FileStorage.Contracts;
     using System.Threading.Tasks;
 
-    public class UploadManuscriptFileCommandHandler(ArticleRepository _articleRepository, AssetTypeDefinitionRepository _assetTypeRepository) : IRequestHandler<UploadManuscriptFileCommand, IdResponse>
+    public class UploadManuscriptFileCommandHandler(ArticleRepository _articleRepository, AssetTypeDefinitionRepository _assetTypeRepository, IFileService _fileService) : IRequestHandler<UploadManuscriptFileCommand, IdResponse>
     {
         public async Task<IdResponse> Handle(UploadManuscriptFileCommand command, CancellationToken cancellationToken)
         {
@@ -16,9 +17,24 @@
 
             if (asset is null) asset = article.CreateAsset(assetType);
 
-            //TODO: Upload the file to the storage and set the file property of the asset
+            var filePath = asset.GenerateStorageFilePath(command.File.FileName);
 
-            await _articleRepository.SaveChangesAsync(cancellationToken);
+            var uploadResponse = await _fileService.UploadFileAsync(filePath, command.File, overwrite: true, tags: new Dictionary<string, string>
+            {
+                { "entity", nameof(Asset) },
+                { "entityId", asset.Id.ToString() },
+            });
+
+            try
+            {
+                asset.CreateFile(uploadResponse, assetType);
+                await _articleRepository.SaveChangesAsync(cancellationToken);
+            }
+            catch (Exception)
+            {
+                await _fileService.TryDeleteFileAsync(uploadResponse.FileId);
+                throw;
+            }
 
             return new IdResponse(asset.Id);
         }

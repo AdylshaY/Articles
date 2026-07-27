@@ -18,7 +18,7 @@
                 Role = role
             });
 
-            //TODO: Create domain event for author assignment
+            //TODO: FromAsset domain event for author assignment
         }
 
         public Asset CreateAsset(AssetTypeDefinition type)

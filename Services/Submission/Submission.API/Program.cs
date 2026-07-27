@@ -24,7 +24,7 @@ app.UseSwagger()
 
 app.MapAllEndpoints();
 
-//TODO: Migrate - Create first migration
+//TODO: Migrate - FromAsset first migration
 
 if(app.Environment.IsDevelopment())
 {
