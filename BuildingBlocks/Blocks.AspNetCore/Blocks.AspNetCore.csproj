@@ -11,10 +11,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.29" />
+	  <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.3" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <ProjectReference Include="..\Articles.Abstractions\Articles.Abstractions.csproj" />
-	</ItemGroup>
 </Project>

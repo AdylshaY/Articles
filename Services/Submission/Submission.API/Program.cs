@@ -9,8 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services
     .AddApiServices(builder.Configuration)
-    .AddApplicationServices(builder.Configuration
-    ).AddPersistenceServices(builder.Configuration);
+    .AddApplicationServices(builder.Configuration)
+    .AddPersistenceServices(builder.Configuration);
 
 #endregion
 
@@ -26,7 +26,7 @@ app.MapAllEndpoints();
 
 //TODO: Migrate - FromAsset first migration
 
-if(app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
     //TODO: Set up database seeding for development environment

@@ -1,5 +1,6 @@
 ﻿namespace Blocks.EntityFramework
 {
+    using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
     using System.Text.Json;
@@ -45,5 +46,13 @@
 
             return new ValueConverter<TCollection, string>(v => serializeFunc(v), v => deserializeFunc(v));
         }
+
+        /// <summary>
+        /// Configures the column name to match the property name.
+        /// </summary>
+        /// <typeparam name="TProperty">The property type.</typeparam>
+        /// <param name="builder">The builder for the property being configured.</param>
+        /// <returns>The same builder instance so that multiple calls can be chained.</returns>
+        public static PropertyBuilder<TProperty> HasColumnNameSameAsProperty<TProperty>(this PropertyBuilder<TProperty> builder) => builder.HasColumnName(builder.Metadata.PropertyInfo?.Name);
     }
 }
