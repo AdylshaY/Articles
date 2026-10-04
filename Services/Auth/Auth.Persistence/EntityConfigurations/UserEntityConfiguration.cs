@@ -1,7 +1,6 @@
 ﻿namespace Auth.Persistence.EntityConfigurations
 {
     using Auth.Domain.Users;
-    using Auth.Domain.Users.ValueObjects;
     using Blocks.Core.Constraints;
     using Blocks.EntityFramework;
     using Blocks.EntityFramework.EntityConfigurations;
@@ -36,6 +35,7 @@
             builder.Property(e => e.PictureUrl).HasMaxLength(MaxLength.C2048);
 
             builder.HasMany(e => e.UserRoles).WithOne().HasForeignKey(e => e.UserId).OnDelete(DeleteBehavior.Cascade);
+            builder.HasMany(e => e.RefreshTokens).WithOne().HasForeignKey(e => e.UserId).OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

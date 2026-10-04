@@ -19,6 +19,8 @@
 
         private List<UserRole> _userRoles = new();
         public virtual IReadOnlyList<UserRole> UserRoles => _userRoles;
-        public List<RefreshToken> RefreshTokens { get; set; } = new();
+
+        private List<RefreshToken> _refreshTokens = new();
+        public virtual IReadOnlyList<RefreshToken> RefreshTokens => _refreshTokens;
     }
 }

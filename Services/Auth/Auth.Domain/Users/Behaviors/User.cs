@@ -23,8 +23,12 @@
                 _userRoles = [.. userCreationInfo.UserRoles.Select(UserRole.Create)],
             };
 
-            // Create domain event
             return user;
+        }
+
+        public void AddRefreshToken(RefreshToken refreshToken)
+        {
+            _refreshTokens.Add(refreshToken);
         }
     }
 }

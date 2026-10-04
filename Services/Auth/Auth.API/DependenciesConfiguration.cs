@@ -12,7 +12,7 @@ namespace Auth.API
     using Microsoft.AspNetCore.Identity;
     using System.Security.Claims;
 
-    public static class DependencyInjection
+    public static class DependenciesConfiguration
     {
         public static IServiceCollection ConfigureApiOptions(this IServiceCollection services, IConfiguration configuration)
         {
@@ -26,8 +26,6 @@ namespace Auth.API
             services
                 .AddFastEndpoints()
                 .SwaggerDocument()
-                .AddEndpointsApiExplorer()
-                .AddSwaggerGen()
                 .AddJwtAuthentication(configuration)
                 .AddJwtIdentity(configuration)
                 .AddAuthorization();

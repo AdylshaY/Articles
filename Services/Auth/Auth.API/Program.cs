@@ -1,6 +1,6 @@
 using Auth.API;
+using Auth.Application;
 using Auth.Persistence;
-using FastEndpoints;
 using FastEndpoints.Swagger;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,16 +13,10 @@ builder.Services.AddSwaggerGen();
 
 builder.Services
     .AddApiServices(builder.Configuration)
+    .AddApplicationServices(builder.Configuration)
     .AddPersistenceServices(builder.Configuration);
 
 var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
 
 app.UseRouting();
 
