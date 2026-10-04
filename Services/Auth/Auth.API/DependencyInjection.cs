@@ -1,4 +1,6 @@
-﻿namespace Auth.API
+﻿using Blocks.Core;
+
+namespace Auth.API
 {
     using Articles.Security;
     using Auth.Domain.Roles;
@@ -12,9 +14,11 @@
 
     public static class DependencyInjection
     {
-        public static void ConfigureApiOptions(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection ConfigureApiOptions(this IServiceCollection services, IConfiguration configuration)
         {
-            // Use it for configure options
+            services.AddAndValidateOptions<JwtOptions>(configuration);
+
+            return services;
         }
 
         public static IServiceCollection AddApiServices(this IServiceCollection services, IConfiguration configuration)
